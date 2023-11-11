@@ -14,9 +14,10 @@ RUN pip install --upgrade -r requirements.txt
 
 COPY drive_bot.py .
 COPY chains.py .
+COPY utils.py .
 COPY credentials.json .
 EXPOSE 8080
 
 HEALTHCHECK CMD curl --fail http://localhost:8080/_stcore/health
 
-ENTRYPOINT ["streamlit", "run", "pdf_bot.py", "--server.port=8080", "--server.address=0.0.0.0"]
+ENTRYPOINT ["streamlit", "run", "drive_bot.py", "--server.port=8080", "--server.address=0.0.0.0"]
